@@ -22,8 +22,10 @@ root_directory=${root_dir_tmp:-/var/www}
 ###############
 
 # Backing up existing instance (if any)
-
-sudo cp -R ${root_directory}/${project_name}-app ${root_directory}/${project_name}-app-backup
+if [ -d ${root_directory}/${project_name}-app ] 
+then
+    sudo cp -R ${root_directory}/${project_name}-app ${root_directory}/${project_name}-app-backup
+fi
 
 ###############
 # Cleaning old copy
