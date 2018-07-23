@@ -1,3 +1,4 @@
+ #!/bin/bash
 # Generic deploy script/process outline for projects
 # This script is meant to be run on the zone itself, in the project's root directory
 
