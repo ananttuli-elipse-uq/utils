@@ -25,7 +25,7 @@ echo "\n######\n";
 echo "Backing up existing instance (if any) . . .\n"; 
 if [ -d ${root_directory}/${project_name}-app ] 
 then
-    sudo cp -R ${root_directory}/${project_name}-app ${root_directory}/${project_name}-app-backup
+    sudo cp -R "${root_directory}/${project_name}-app" "${root_directory}/${project_name}-app-backup"
 else
 	echo "App instance does not exist";
 fi
@@ -33,8 +33,8 @@ fi
 ###############
 # Cleaning old copy
 
-sudo rm -rf ${root_directory}/${$project_name}-git
-sudo rm -rf ${root_directory}/${$project_name}-app
+sudo rm -rf "${root_directory}/${$project_name}-git"
+sudo rm -rf "${root_directory}/${$project_name}-app"
 
 ###############
 echo "\n######\n";
@@ -49,7 +49,7 @@ branch_name=${git_branch:-master}
 
 echo "\n######\n";
 echo "Cloning ${branch_name} branch from ${git_repo} . . .\n"
-sudo git clone --single-branch -b ${branch_name} ${git_repo} ${root_directory}/${project_name}-git
+sudo git clone --single-branch -b ${branch_name} ${git_repo} "${root_directory}/${project_name}-git"
 
 ################
 # Set appropriate permissions on the files
