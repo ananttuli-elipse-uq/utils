@@ -33,8 +33,8 @@ fi
 ###############
 # Cleaning old copy
 
-sudo rm -rf ${root_dir}/${$project_name}-git
-sudo rm -rf ${root_dir}/${$project_name}-app
+sudo rm -rf ${root_directory}/${$project_name}-git
+sudo rm -rf ${root_directory}/${$project_name}-app
 
 ###############
 echo "\n######\n";
@@ -54,7 +54,7 @@ sudo git clone --single-branch -b ${branch_name} ${git_repo} ${root_directory}/$
 ################
 # Set appropriate permissions on the files
 # Un-comment this and replace <user/group>
-# sudo chgrp -R <group> ${root_dir}/${$project_name}-app
+# sudo chgrp -R <group> ${root_directory}/${$project_name}-app
 # sudo chmod -R g+w <group>
 
 
