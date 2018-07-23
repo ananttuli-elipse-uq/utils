@@ -6,6 +6,7 @@
 #sudo systemctl stop <service_name>
 
 # Enter project name
+read -p echo "Enter project name (this is/will be your folder tag for the project): " project_name
 
 while [[ $project_name == '' ]]
 do
