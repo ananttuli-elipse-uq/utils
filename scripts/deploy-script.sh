@@ -14,21 +14,19 @@ do
     read -p "Enter project name (this is/will be your folder tag for the project): " project_name
 done
 
-echo "\n######\n";
+echo -e "\n######\n";
 
-echo "Enter absolute root directory for deployment [Default: /var/www | Leave blank for default]\n";
-echo "NOTE: DO NOT APPEND A TRAILING SLASH e.g. /var/www/";
-read root_dir_tmp;
+read -p "Enter absolute path for the ${project_name}'s root directory [Default: /var/www] (NOTE: NO TRAILING SLASH)" root_dir_tmp;
 root_directory=${root_dir_tmp:-"/var/www"}
 
 ###############
-echo "\n######\n";
-echo "Backing up existing instance (if any) . . .\n"; 
+echo -e "\n######\n";
+echo -e "Backing up existing instance (if any) . . .\n"; 
 if [ -d "${root_directory}/${project_name}-app" ] 
 then
     sudo cp -R "${root_directory}/${project_name}-app" "${root_directory}/${project_name}-app-backup"
 else
-	echo "App instance does not exist";
+	echo -e "\n\tNote: App instance does not exist\n";
 fi
 
 ###############
@@ -38,18 +36,18 @@ sudo rm -rf "${root_directory}/${project_name}-git"
 sudo rm -rf "${root_directory}/${project_name}-app"
 
 ###############
-echo "\n######\n";
+echo -e "\n######\n";
 
 # Pulling latest code from remote git repository
 read -p "Enter git repository URL: " git_repo;
 
-echo "\n######\n";
+echo -e "\n######\n";
 
 read -p "Which branch do you want to clone? [Default: master | Leave blank for default]" git_branch;
 branch_name=${git_branch:-master}
 
-echo "\n######\n";
-echo "Cloning ${branch_name} branch from ${git_repo} . . .\n"
+echo -e "\n######\n";
+echo -e "Cloning ${branch_name} branch from ${git_repo} . . .\n"
 sudo git clone --single-branch -b ${branch_name} ${git_repo} "${root_directory}/${project_name}-git"
 
 ################
