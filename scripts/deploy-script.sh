@@ -51,8 +51,14 @@ echo -e "Cloning ${branch_name} branch from ${git_repo} . . .\n"
 sudo git clone --single-branch -b ${branch_name} ${git_repo} "${root_directory}/${project_name}-git"
 
 ################
+echo -e "\n######\n";
+
+echo -e "Copying latest files into the ${project_name}-app folder . . .\n";
+sudo cp -R "${root_directory}/${project_name}-git" "${root_directory}/${project_name}-app";
+
+################
 # Set appropriate permissions on the files
-# Un-comment this and replace <user/group>
+# Un-comment this and replace <group>
 # sudo chgrp -R <group> ${root_directory}/${$project_name}-app
 # sudo chmod -R g+w <group>
 
